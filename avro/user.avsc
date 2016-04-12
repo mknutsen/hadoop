@@ -1,0 +1,44 @@
+{
+  "namespace": "twitter.avro",
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "screen_name",
+      "type": "string"
+    },
+    {
+      "name": "location",
+      "type": [
+        "string","null"
+      ],"default":"null"
+    },
+    {
+      "name": "description",
+
+      "type": [
+        "string","null"
+      ],"default":"null"
+    },
+    {
+      "name": "followers_count",
+      "type": "int"
+    },
+    {
+      "name": "statuses_count",
+      "type": "int"
+    },
+    {
+      "name": "geo_enabled",
+      "type": "boolean"
+    },
+    {
+      "name": "lang",
+      "type": "string"
+    }
+  ]
+}

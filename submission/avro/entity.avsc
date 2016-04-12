@@ -1,0 +1,28 @@
+{
+  "namespace": "twitter.avro",
+  "type": "record",
+  "name": "Entity",
+  "fields": [
+    {
+      "name": "hashtags",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "urls",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "user_mentions",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    }
+  ]
+}

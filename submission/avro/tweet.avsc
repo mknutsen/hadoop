@@ -1,0 +1,47 @@
+{
+  "namespace": "twitter.avro",
+  "type": "record",
+  "name": "Tweet",
+  "fields": [
+    {
+      "name": "created_at",
+      "type": "string"
+    },
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "default":""
+    },
+    {
+      "name": "source",
+      "type": "string"
+    },
+    {
+      "name": "user",
+      "type": "User"
+    },
+    {
+      "name": "coordinate",
+      "type": [
+        "null",
+        "Coordinate"
+      ]
+    },
+    {
+      "name": "retweet_count",
+      "type": "int"
+    },
+    {
+      "name": "favorite_count",
+      "type": "int"
+    },
+    {
+      "name": "entities",
+      "type": "Entity"
+    }
+  ]
+}

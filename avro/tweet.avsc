@@ -1,0 +1,105 @@
+{
+  "namespace": "twitter.avro",
+  "type": "record",
+  "name": "Tweet",
+  "fields": [
+    {
+      "name": "created_at",
+      "type": "string"
+    },
+    {
+      "name": "id",
+      "type": "long"
+    },
+    {
+      "name": "text",
+      "type": "string",
+      "default": ""
+    },
+    {
+      "name": "source",
+      "type": "string"
+    },
+    {
+      "name": "retweet_count",
+      "type": "int"
+    },
+    {
+      "name": "favorite_count",
+      "type": "int"
+    },
+    {
+      "name": "screen_name",
+      "type": "string"
+    },
+    {
+      "name": "location",
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": "null"
+    },
+    {
+      "name": "description",
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": "null"
+    },
+    {
+      "name": "followers_count",
+      "type": "int"
+    },
+    {
+      "name": "statuses_count",
+      "type": "int"
+    },
+    {
+      "name": "geo_enabled",
+      "type": "boolean"
+    },
+    {
+      "name": "lang",
+      "type": "string"
+    },
+    {
+      "name": "hashtags",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "urls",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "user_mentions",
+      "type": {
+        "type": "array",
+        "items": "string"
+      }
+    },
+    {
+      "name": "long",
+      "type": [
+        "double",
+        "null"
+      ],
+      "default": 0
+    },
+    {
+      "name": "lat",
+      "type": [
+        "double",
+        "null"
+      ],
+      "default": 0
+    }
+  ]
+}

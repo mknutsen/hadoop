@@ -1,0 +1,23 @@
+{
+  "namespace": "twitter.avro",
+  "type": "record",
+  "name": "Coordinate",
+  "fields": [
+    {
+      "name": "long",
+      "type": [
+        "double",
+        "null"
+      ],
+      "default": 0
+    },
+    {
+      "name": "lat",
+      "type": [
+        "double",
+        "null"
+      ],
+      "default": 0
+    }
+  ]
+}
