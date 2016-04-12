@@ -142,7 +142,7 @@ public abstract class DataLoad extends Configured implements Tool {
 
         public static final String USER_PASS = "secret";
 
-        public static final String INSTANCE = "localAccumulo";
+        public static final String INSTANCE = "default";
 
         public static final String ZOOKEEPERS = "localhost:2181";
 
