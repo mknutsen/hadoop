@@ -135,7 +135,7 @@ public abstract class DataLoad extends Configured implements Tool {
         return 0;
     }
 
-    public class Constants {
+    public static class Constants {
 
         // Accumulo Configuration
         public static final String USER_NAME = "root";
