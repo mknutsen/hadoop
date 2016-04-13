@@ -64,7 +64,7 @@ public abstract class DataLoad extends Configured implements Tool {
 
         // Set the location of the twitter data
         String dataDir = args[1];
-
+        System.out.println("gjetting files")
         // Get the names of all of the files containing twitter data
         File[] files = new File(dataDir).listFiles(new FilenameFilter() {
 
@@ -72,10 +72,11 @@ public abstract class DataLoad extends Configured implements Tool {
                 return name.contains("part");
             }
         });
+        System.out.println("getting zookeeper");
 
         // Configure the ZooKeeper instance and the Connector objects
         ZooKeeperInstance instance = new ZooKeeperInstance(Constants.INSTANCE, Constants.ZOOKEEPERS);
-
+        System.out.println("connecting to accumulo");
         Connector connector =
                 instance.getConnector(Constants.USER_NAME, new PasswordToken(Constants.USER_PASS.getBytes()));
 
