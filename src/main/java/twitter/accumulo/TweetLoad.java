@@ -1,8 +1,14 @@
 package twitter.accumulo;
 
 import org.apache.accumulo.core.data.Mutation;
+import org.apache.avro.io.BinaryDecoder;
+import org.apache.avro.io.DecoderFactory;
+import org.apache.avro.specific.SpecificDatumReader;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.util.ToolRunner;
+import twitter.avro.Tweet;
+
+import java.io.IOException;
 
 /**
  * Created by mknutsen on 4/11/16.
@@ -29,14 +35,23 @@ public class TweetLoad extends DataLoad {
     //    Any additional columns you've selected to include from the Twitter object model
     @Override
     Mutation processLine(final String rawString) {
-        String[] parts = rawString.split(" ");
-        Mutation mutation = new Mutation(parts[0]);
-        mutation.put("tweet", "tweet_id", parts[1]);
-        mutation.put("tweet", "location", parts[2]);
-        mutation.put("tweet", "description", parts[3]);
-        mutation.put("tweet", "followers_count", parts[4]);
-        mutation.put("tweet", "geo_enabled", parts[5]);
-        mutation.put("tweet", "lang", parts[6]);
+        BinaryDecoder decode = DecoderFactory.get().binaryDecoder(rawString.getBytes(), null);
+        Tweet tweet;
+
+        SpecificDatumReader<Tweet> reading = new SpecificDatumReader<>(Tweet.getClassSchema());
+        try {
+            tweet = reading.read(null, decode);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+        Mutation mutation = new Mutation(tweet.getId().toString());
+        mutation.put("tweet", "tweet_id", tweet.getId().toString());
+        mutation.put("tweet", "location", tweet.getLocation().toString());
+        mutation.put("tweet", "description", tweet.getDescription().toString());
+        mutation.put("tweet", "followers_count", tweet.getFollowersCount().toString());
+        mutation.put("tweet", "geo_enabled", tweet.getGeoEnabled().toString());
+        mutation.put("tweet", "lang", tweet.getLang().toString());
         return mutation;
     }
     
