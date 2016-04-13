@@ -18,7 +18,7 @@ import java.io.FilenameFilter;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by mknutsen on 4/11/16.
+ls -a * Created by mknutsen on 4/11/16.
  */
 public abstract class DataLoad extends Configured implements Tool {
 
@@ -64,12 +64,12 @@ public abstract class DataLoad extends Configured implements Tool {
 
         // Set the location of the twitter data
         String dataDir = args[1];
-        System.out.println("gjetting files")
+        System.out.println("gjetting files");
         // Get the names of all of the files containing twitter data
         File[] files = new File(dataDir).listFiles(new FilenameFilter() {
 
             public boolean accept(File dir, String name) {
-                return name.contains("part");
+                return name.contains("part") && !name.contains(".crc");
             }
         });
         System.out.println("getting zookeeper");
@@ -145,7 +145,7 @@ public abstract class DataLoad extends Configured implements Tool {
 
         public static final String INSTANCE = "default";
 
-        public static final String ZOOKEEPERS = "localhost:2181";
+        public static final String ZOOKEEPERS = "cmsc491.home:2181";
 
     }
 }
