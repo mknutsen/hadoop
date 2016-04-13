@@ -9,7 +9,7 @@ apply plugin: 'idea'
 apply plugin: 'application'
 sourceCompatibility = "1.7"; // for example
 targetCompatibility = "1.7"; // defaults to sourceCompatibility
-mainClassName = "twitter.accumulo.AccumuloTester"
+mainClassName = "twitter.accumulo.DataLoad"
 
 repositories {
     mavenCentral()
