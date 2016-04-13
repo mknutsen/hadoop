@@ -57,13 +57,13 @@ public abstract class DataLoad extends Configured implements Tool {
     public int run(String args[]) throws Exception {
 
         // Ensure the user enters the path to the twitter data
-        if (args.length != 1) {
+        if (args.length != 2) {
             System.out.println("Usage: hadoop jar accumulo-writer-example.jar <data_dir>");
             return 1;
         }
 
         // Set the location of the twitter data
-        String dataDir = args[0];
+        String dataDir = args[1];
 
         // Get the names of all of the files containing twitter data
         File[] files = new File(dataDir).listFiles(new FilenameFilter() {
