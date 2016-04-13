@@ -69,7 +69,7 @@ public abstract class DataLoad extends Configured implements Tool {
         File[] files = new File(dataDir).listFiles(new FilenameFilter() {
 
             public boolean accept(File dir, String name) {
-                return name.endsWith(".pig");
+                return name.contains("part");
             }
         });
 
